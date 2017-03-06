@@ -215,6 +215,10 @@
 {
     NSLog(@"Error loading page: %@", [error description]);
     
+    if ([error code] == -999) {
+        return;
+    }
+ 
     if (userRequestedReload == NO && self.plugin.showConnectionErrorDialog == YES) {
         [self displayRetryPromptWithMessage:@"Unable to contact the site." withCancelText:@"Close" retryable:NO];
     }
